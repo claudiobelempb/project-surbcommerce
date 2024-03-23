@@ -1,6 +1,6 @@
 package br.surb.com.br.dscommerce.entities;
 
-import br.surb.com.br.dscommerce.shared.AppEnums.OrderEnum;
+import br.surb.com.br.dscommerce.shared.enums.OrderEnum;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -13,7 +13,6 @@ import java.time.Instant;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Data

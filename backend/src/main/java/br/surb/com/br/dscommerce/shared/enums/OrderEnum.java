@@ -1,4 +1,4 @@
-package br.surb.com.br.dscommerce.shared.AppEnums;
+package br.surb.com.br.dscommerce.shared.enums;
 
 import lombok.Getter;
 
