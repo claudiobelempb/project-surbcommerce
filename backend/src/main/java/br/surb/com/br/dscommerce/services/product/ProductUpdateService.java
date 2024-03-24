@@ -3,6 +3,7 @@ package br.surb.com.br.dscommerce.services.product;
 import br.surb.com.br.dscommerce.dto.ProductDTO;
 import br.surb.com.br.dscommerce.entities.Product;
 import br.surb.com.br.dscommerce.repositories.ProductRepository;
+import br.surb.com.br.dscommerce.shared.constants.constantException;
 import br.surb.com.br.dscommerce.shared.exeptions.resource.ResourceNotFondExecption;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
@@ -24,7 +25,7 @@ public class ProductUpdateService {
             entity = productRepository.save(entity);
             return new ProductDTO(entity);
         } catch (EntityNotFoundException e) {
-            throw new ResourceNotFondExecption("Entity not found");
+            throw new ResourceNotFondExecption(constantException.ENTITY_NOT_FOUND);
         }
 
     }

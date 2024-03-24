@@ -23,7 +23,7 @@ public class ResourceAdviceExceptionHandler {
 
     @ExceptionHandler(ServiceDataIntegrityViolationException.class)
     public ResponseEntity<CustomError> serviceDataIntegrityViolation(ServiceDataIntegrityViolationException e, HttpServletRequest request) {
-        HttpStatus status = HttpStatus.NOT_FOUND;
+        HttpStatus status = HttpStatus.BAD_REQUEST;
         CustomError err = new CustomError(Instant.now(), status.value(), e.getMessage(), request.getRequestURI());
         return ResponseEntity.status(status).body(err);
     }

@@ -3,6 +3,7 @@ package br.surb.com.br.dscommerce.services.product;
 import br.surb.com.br.dscommerce.dto.ProductDTO;
 import br.surb.com.br.dscommerce.entities.Product;
 import br.surb.com.br.dscommerce.repositories.ProductRepository;
+import br.surb.com.br.dscommerce.shared.constants.constantException;
 import br.surb.com.br.dscommerce.shared.exeptions.resource.ResourceNotFondExecption;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -22,7 +23,7 @@ public class ProductFindByIdService {
         Objects.requireNonNull(productId);
         Product product = productRepository
                 .findById(productId)
-                .orElseThrow(() -> new ResourceNotFondExecption("Resource not found " + productId));
+                .orElseThrow(() -> new ResourceNotFondExecption(constantException.ENTITY_NOT_FOUND));
         return new ProductDTO(product);
     }
 }
