@@ -1,8 +1,8 @@
 package br.surb.com.br.dscommerce.shared.constants;
 
-public final class constantValidator {
+public final class ConstantValidator {
 
-  private constantValidator(){}
+  private ConstantValidator(){}
 
   public static Integer SIZE_MIN = 5;
   public static Integer SIZE_MAX = 60;
@@ -16,9 +16,9 @@ public final class constantValidator {
   public static final String REQUIRED_EMAIL_EXIST = "já existe em nossa base de dados.";
   public static final String REQUIRED_PRICE_POSITIVO = "Preço deve ser um valor positivo.";
   public static final String REQUIRED_DATA_PRESENT = "A data do produto não pode ser futura.";
-  public static final Integer REQUIRED_SIZE_MIN = 5;
-  public static final Integer REQUIRED_SIZE_MAX = 60;
   public static final String REQUIRED_SIZE_MESSAGE = "Deve ter entre 5 e 60 caracteres.";
+  public static final String REQUIRED_SIZE_MAX = "Deve ter no maxímo 60 caracteres.";
+  public static final String REQUIRED_SIZE_MIN = "Deve ter no minimo 5 caracteres.";
 
   public static final String REQUIRED_PHONE = "O campo Telefone deve conter apenas dígitos.";
   public static final String INVALID_EMAIL = "O endereço usado no campo Email não é um endereço de e-mail válido.";

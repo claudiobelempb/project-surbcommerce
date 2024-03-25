@@ -2,6 +2,7 @@ package br.surb.com.br.dscommerce.resources.product;
 
 import br.surb.com.br.dscommerce.dto.ProductDTO;
 import br.surb.com.br.dscommerce.services.product.ProductUpdateService;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,7 +20,7 @@ public class ProductUpdateResource {
     }
 
     @PutMapping(value = "/{productId}")
-    public CompletableFuture<ResponseEntity<ProductDTO>> handle(@PathVariable Long productId, @RequestBody ProductDTO dto) {
+    public CompletableFuture<ResponseEntity<ProductDTO>> handle(@PathVariable Long productId, @Valid @RequestBody ProductDTO dto) {
         return supplyAsync(() -> productUpdateService.execute(productId, dto)).thenApply((product) -> ResponseEntity.ok().body(product));
     }
 

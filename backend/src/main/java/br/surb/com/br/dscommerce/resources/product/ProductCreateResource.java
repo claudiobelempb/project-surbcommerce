@@ -2,6 +2,7 @@ package br.surb.com.br.dscommerce.resources.product;
 
 import br.surb.com.br.dscommerce.dto.ProductDTO;
 import br.surb.com.br.dscommerce.services.product.ProductCreateService;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -29,7 +30,7 @@ public class ProductCreateResource {
 //    }
 
     @PostMapping
-    public CompletableFuture<ResponseEntity<ProductDTO>> handle(@RequestBody ProductDTO dto) {
+    public CompletableFuture<ResponseEntity<ProductDTO>> handle(@Valid @RequestBody ProductDTO dto) {
         ProductDTO obj = productCreateService.execute(dto);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{productId}").buildAndExpand(obj.getId()).toUri();
         return supplyAsync(() -> obj).thenApply((__) -> ResponseEntity.created(uri).body(obj));

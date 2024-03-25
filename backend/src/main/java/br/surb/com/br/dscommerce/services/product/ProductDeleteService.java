@@ -1,7 +1,7 @@
 package br.surb.com.br.dscommerce.services.product;
 
 import br.surb.com.br.dscommerce.repositories.ProductRepository;
-import br.surb.com.br.dscommerce.shared.constants.constantException;
+import br.surb.com.br.dscommerce.shared.constants.ConstantException;
 import br.surb.com.br.dscommerce.shared.exeptions.resource.ResourceNotFondExecption;
 import br.surb.com.br.dscommerce.shared.exeptions.service.ServiceDataIntegrityViolationException;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -20,12 +20,12 @@ public class ProductDeleteService {
     @Transactional(propagation = Propagation.SUPPORTS)
     public void execute(Long productId){
 
-        if(!productRepository.existsById(productId)) throw new ResourceNotFondExecption(constantException.ENTITY_NOT_FOUND);
+        if(!productRepository.existsById(productId)) throw new ResourceNotFondExecption(ConstantException.ENTITY_NOT_FOUND);
 
         try {
             productRepository.deleteById(productId);
         }catch (DataIntegrityViolationException e){
-            throw new ServiceDataIntegrityViolationException(constantException.DATA_INTEGRITY_VIOLATION);
+            throw new ServiceDataIntegrityViolationException(ConstantException.DATA_INTEGRITY_VIOLATION);
         }
 
     }

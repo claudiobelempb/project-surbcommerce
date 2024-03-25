@@ -3,7 +3,7 @@ package br.surb.com.br.dscommerce.shared.constants;
 import lombok.NoArgsConstructor;
 
 @NoArgsConstructor
-public class constantException {
+public class ConstantException {
   public static final String ENTITY_NOT_FOUND = ".Entity not found.";
   public static final String RESOURCE_NOT_FOUND = "Resource not found.";
   public static final String VALID_SORT = ".No valid sortable fields were defined.";
