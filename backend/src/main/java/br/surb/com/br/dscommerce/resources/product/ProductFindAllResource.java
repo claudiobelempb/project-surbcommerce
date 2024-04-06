@@ -1,6 +1,6 @@
 package br.surb.com.br.dscommerce.resources.product;
 
-import br.surb.com.br.dscommerce.dto.ProductDTO;
+import br.surb.com.br.dscommerce.dto.product.ProductDTO;
 import br.surb.com.br.dscommerce.services.product.ProductFindAllService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

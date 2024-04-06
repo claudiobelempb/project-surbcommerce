@@ -48,4 +48,11 @@ public class Order implements Serializable {
         return items.stream().map(item -> item.getProduct()).collect(Collectors.toList());
     }
 
+    @PrePersist
+    public void prePersist() {
+        moment = Instant.now();
+        status = OrderEnum.PAID;
+    }
+
+
 }

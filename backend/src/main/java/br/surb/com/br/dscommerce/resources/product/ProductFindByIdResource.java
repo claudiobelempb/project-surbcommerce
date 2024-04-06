@@ -1,6 +1,6 @@
 package br.surb.com.br.dscommerce.resources.product;
 
-import br.surb.com.br.dscommerce.dto.ProductDTO;
+import br.surb.com.br.dscommerce.dto.product.ProductDTO;
 import br.surb.com.br.dscommerce.services.product.ProductFindByIdService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -69,3 +69,26 @@ INSERT INTO tb_order_item (order_id, product_id, quantity, price) VALUES (3, 1, 
 
 INSERT INTO tb_payment (order_id, moment) VALUES (1, TIMESTAMP WITH TIME ZONE '2022-07-25T15:00:00Z');
 INSERT INTO tb_payment (order_id, moment) VALUES (2, TIMESTAMP WITH TIME ZONE '2022-07-30T11:00:00Z');
+
+--INSERT INTO tb_client (name, cpf, birth_date, income, children) VALUES("CLAUDIO CARDOSO", "02937470408", "26/07/1977", 1800.00, 2);
+--INSERT INTO tb_client (name, cpf, birth_date, income, children) VALUES ("Benício Pedro Henrique Porto", "08351606960", "2001/03/04", 3200.00, 1);
+--INSERT INTO tb_client (name, cpf, birth_date, income, children) VALUES ("Cauê Miguel Giovanni Monteiro", "23280992117", "1949/06/29", 5200.00, 2);
+
+INSERT INTO tb_department(name) VALUES ('Sales');
+INSERT INTO tb_department(name) VALUES ('Management');
+INSERT INTO tb_department(name) VALUES ('Training');
+
+INSERT INTO tb_employee(name, email, department_id) VALUES ('Maria', 'maria@gmail.com', 1);
+INSERT INTO tb_employee(name, email, department_id) VALUES ('Ana', 'ana@gmail.com', 2);
+INSERT INTO tb_employee(name, email, department_id) VALUES ('Bob', 'bob@gmail.com', 1);
+INSERT INTO tb_employee(name, email, department_id) VALUES ('Marco', 'marco@gmail.com', 2);
+INSERT INTO tb_employee(name, email, department_id) VALUES ('Alex', 'alex@gmail.com', 1);
+INSERT INTO tb_employee(name, email, department_id) VALUES ('Claudia', 'claudia@gmail.com', 1);
+INSERT INTO tb_employee(name, email, department_id) VALUES ('Rodrigo', 'rodrigo@gmail.com', 1);
+INSERT INTO tb_employee(name, email, department_id) VALUES ('Elisa', 'elisa@gmail.com', 2);
+INSERT INTO tb_employee(name, email, department_id) VALUES ('Lucas', 'lucas@gmail.com', 3);
+INSERT INTO tb_employee(name, email, department_id) VALUES ('Rafael', 'rafael@gmail.com', 1);
+INSERT INTO tb_employee(name, email, department_id) VALUES ('Tiago', 'tiago@gmail.com', 1);
+INSERT INTO tb_employee(name, email, department_id) VALUES ('Andressa', 'andressa@gmail.com', 2);
+INSERT INTO tb_employee(name, email, department_id) VALUES ('Meire', 'meire@gmail.com', 3);
+INSERT INTO tb_employee(name, email, department_id) VALUES ('Carol', 'carol@gmail.com', 1);

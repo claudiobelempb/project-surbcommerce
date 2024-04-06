@@ -1,13 +1,19 @@
 package br.surb.com.br.dscommerce.services.product;
 
-import br.surb.com.br.dscommerce.dto.ProductDTO;
+import br.surb.com.br.dscommerce.dto.product.ProductCustomRequest;
+import br.surb.com.br.dscommerce.dto.product.ProductCustomResponse;
+import br.surb.com.br.dscommerce.entities.Category;
 import br.surb.com.br.dscommerce.entities.Product;
+import br.surb.com.br.dscommerce.mapper.ProductMapper;
 import br.surb.com.br.dscommerce.repositories.ProductRepository;
 import br.surb.com.br.dscommerce.shared.constants.ConstantException;
 import br.surb.com.br.dscommerce.shared.exeptions.resource.ResourceNotFondExecption;
-import jakarta.persistence.EntityNotFoundException;
+import jakarta.validation.Valid;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 @Service
 public class ProductUpdateService {
@@ -18,23 +24,21 @@ public class ProductUpdateService {
     }
 
     @Transactional
-    public ProductDTO execute(Long productId, ProductDTO dto) {
-        try {
-            Product entity = productRepository.getReferenceById(productId);
-            copyDtoToEntity(dto, entity);
-            entity = productRepository.save(entity);
-            return new ProductDTO(entity);
-        } catch (EntityNotFoundException e) {
-            throw new ResourceNotFondExecption(ConstantException.ENTITY_NOT_FOUND);
-        }
+    public ProductCustomResponse execute(Long id, @Valid ProductCustomRequest request) {
+        if (!productRepository.existsById(id)) throw new ResourceNotFondExecption(ConstantException.ENTITY_NOT_FOUND);
+
+        Objects.requireNonNull(id);
+        Product response = Product.builder()
+                .id(productRepository.getReferenceById(id).getId())
+                .name(request.name())
+                .description(request.description())
+                .price(request.price())
+                .imgUrl(request.imgUrl())
+                .categories(request.categories().stream().map(resp -> Category.builder().id(resp.id()).name(resp.name()).build()).collect(Collectors.toSet()))
+                .build();
+//            response = ProductMapper.toCustomRequest(request);
+        response = productRepository.save(response);
+        return ProductMapper.toCustomResponse(response);
 
     }
-
-    private void copyDtoToEntity(ProductDTO dto, Product entity) {
-        entity.setName(dto.getName());
-        entity.setDescription(dto.getDescription());
-        entity.setPrice(dto.getPrice());
-        entity.setImgUrl(dto.getImgUrl());
-    }
-
 }

@@ -1,6 +1,8 @@
 package br.surb.com.br.dscommerce.resources.product;
 
-import br.surb.com.br.dscommerce.dto.ProductDTO;
+import br.surb.com.br.dscommerce.dto.product.ProductCustomRequest;
+import br.surb.com.br.dscommerce.dto.product.ProductCustomResponse;
+import br.surb.com.br.dscommerce.dto.product.ProductDTO;
 import br.surb.com.br.dscommerce.services.product.ProductUpdateService;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
@@ -20,8 +22,8 @@ public class ProductUpdateResource {
     }
 
     @PutMapping(value = "/{productId}")
-    public CompletableFuture<ResponseEntity<ProductDTO>> handle(@PathVariable Long productId, @Valid @RequestBody ProductDTO dto) {
-        return supplyAsync(() -> productUpdateService.execute(productId, dto)).thenApply((product) -> ResponseEntity.ok().body(product));
+    public CompletableFuture<ResponseEntity<ProductCustomResponse>> handle(@PathVariable Long productId, @Valid @RequestBody ProductCustomRequest request) {
+        return supplyAsync(() -> productUpdateService.execute(productId, request)).thenApply((product) -> ResponseEntity.ok().body(product));
     }
 
 }

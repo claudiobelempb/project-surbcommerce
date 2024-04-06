@@ -1,5 +1,6 @@
 package br.surb.com.br.dscommerce.entities;
 
+import br.surb.com.br.dscommerce.shared.enums.OrderEnum;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -31,5 +32,10 @@ public class Payment implements Serializable {
     @OneToOne
     @JoinColumn(name = "order_id")
     private Order order;
+
+    @PrePersist
+    public void prePersist() {
+        moment = Instant.now();
+    }
 
 }

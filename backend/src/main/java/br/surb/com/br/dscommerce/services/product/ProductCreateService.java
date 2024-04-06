@@ -1,7 +1,9 @@
 package br.surb.com.br.dscommerce.services.product;
 
-import br.surb.com.br.dscommerce.dto.ProductDTO;
+import br.surb.com.br.dscommerce.dto.product.ProductCreateRequest;
+import br.surb.com.br.dscommerce.dto.product.ProductCreateResponse;
 import br.surb.com.br.dscommerce.entities.Product;
+import br.surb.com.br.dscommerce.mapper.ProductMapper;
 import br.surb.com.br.dscommerce.repositories.ProductRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,17 +17,9 @@ public class ProductCreateService {
     }
 
     @Transactional
-    public ProductDTO execute(ProductDTO dto) {
-        Product entity = new Product();
-        copyDtoToEntity(dto, entity);
-        entity = productRepository.save(entity);
-        return new ProductDTO(entity);
-    }
-
-    private void copyDtoToEntity(ProductDTO dto, Product entity) {
-        entity.setName(dto.getName());
-        entity.setDescription(dto.getDescription());
-        entity.setPrice(dto.getPrice());
-        entity.setImgUrl(dto.getImgUrl());
+    public ProductCreateResponse execute(ProductCreateRequest request) {
+        Product response = ProductMapper.toCreateRequest(request);
+        response = productRepository.save(response);
+        return ProductMapper.toCreateResponse(response);
     }
 }
