@@ -1,12 +1,12 @@
-package br.surb.com.br.dscommerce.dto.product;
+package br.surb.com.br.dscommerce.response.product;
 
-import br.surb.com.br.dscommerce.dto.category.CategoryResponse;
+import br.surb.com.br.dscommerce.response.category.CategoryResponse;
 
 import java.io.Serial;
 import java.io.Serializable;
 import java.util.Set;
 
-public record ProductCustomResponse(
+public record ProductCreateResponse(
         Long id,
         String name,
         String description,

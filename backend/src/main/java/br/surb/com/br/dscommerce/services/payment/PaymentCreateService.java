@@ -1,6 +1,6 @@
 package br.surb.com.br.dscommerce.services.payment;
 
-import br.surb.com.br.dscommerce.dto.PaymentDTO;
+import br.surb.com.br.dscommerce.response.PaymentDTO;
 import br.surb.com.br.dscommerce.entities.Order;
 import br.surb.com.br.dscommerce.entities.Payment;
 import br.surb.com.br.dscommerce.repositories.OrderRepository;

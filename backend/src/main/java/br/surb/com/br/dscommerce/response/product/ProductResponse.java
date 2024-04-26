@@ -1,5 +1,6 @@
-package br.surb.com.br.dscommerce.dto.product;
+package br.surb.com.br.dscommerce.response.product;
 
+import br.surb.com.br.dscommerce.response.category.CategoryResponse;
 import br.surb.com.br.dscommerce.shared.constants.ConstantValidator;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Positive;
@@ -7,9 +8,10 @@ import jakarta.validation.constraints.Size;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.util.List;
 import java.util.Set;
 
-public record ProductDTO(
+public record ProductResponse(
         Long id,
         @Size(min = 5, max = 60, message = ConstantValidator.REQUIRED_SIZE_MESSAGE)
         @NotBlank(message = ConstantValidator.REQUIRED_FIELD)
@@ -19,7 +21,8 @@ public record ProductDTO(
         String description,
         @Positive(message = ConstantValidator.REQUIRED_PRICE_POSITIVO)
         Double price,
-        String imgUrl
+        String imgUrl,
+        List<CategoryResponse> categories
 ) implements Serializable {
 
     @Serial

@@ -1,6 +1,6 @@
-package br.surb.com.br.dscommerce.dto.product;
+package br.surb.com.br.dscommerce.response.product;
 
-import br.surb.com.br.dscommerce.dto.category.CategoryResponse;
+import br.surb.com.br.dscommerce.response.category.CategoryResponse;
 import br.surb.com.br.dscommerce.shared.constants.ConstantValidator;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Positive;
@@ -10,7 +10,7 @@ import java.io.Serial;
 import java.io.Serializable;
 import java.util.Set;
 
-public record ProductCreateDTO(
+public record ProductCreateRequest(
         Long id,
         @Size(min = 5, max = 60, message = ConstantValidator.REQUIRED_SIZE_MESSAGE)
         @NotBlank(message = ConstantValidator.REQUIRED_FIELD)

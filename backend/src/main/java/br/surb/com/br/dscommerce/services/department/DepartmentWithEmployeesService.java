@@ -1,8 +1,8 @@
 package br.surb.com.br.dscommerce.services.department;
 
 import br.surb.com.br.dscommerce.entities.Department;
-import br.surb.com.br.dscommerce.entities.Employee;
-import br.surb.com.br.dscommerce.http.response.EmployeeDepartmentResponse;
+import br.surb.com.br.dscommerce.http.response.EmployeeResponse;
+import br.surb.com.br.dscommerce.mapper.EmployeeMapper;
 import br.surb.com.br.dscommerce.repositories.DepartmentRepository;
 import br.surb.com.br.dscommerce.shared.constants.ConstantException;
 import br.surb.com.br.dscommerce.shared.exeptions.resource.ResourceNotFondExecption;
@@ -11,7 +11,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Objects;
-import java.util.stream.Collectors;
 
 @Service
 public class DepartmentWithEmployeesService {
@@ -22,13 +21,11 @@ public class DepartmentWithEmployeesService {
     }
 
     @Transactional(readOnly = true)
-    public List<EmployeeDepartmentResponse> execute(Long id) {
+    public List<EmployeeResponse> execute(Long id) {
         Objects.requireNonNull(id);
         Department response = departmentRepository
                 .findById(id)
                 .orElseThrow(() -> new ResourceNotFondExecption(ConstantException.ENTITY_NOT_FOUND));
-        List<Employee> employees = response.getEmployees();
-
-        return employees.stream().map(x -> new EmployeeDepartmentResponse(x.getId(), x.getName(), x.getEmail())).collect(Collectors.toList());
+        return EmployeeMapper.toEmployeeDepartmentResponse(response);
     }
 }

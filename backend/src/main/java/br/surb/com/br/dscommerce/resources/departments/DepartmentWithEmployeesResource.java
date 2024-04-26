@@ -25,7 +25,7 @@ public class DepartmentWithEmployeesResource {
     }
 
     @GetMapping(value = "/{id}/employees")
-    public CompletableFuture<ResponseEntity<List<EmployeeDepartmentResponse>>> handle(@PathVariable Long id) {
+    public CompletableFuture<ResponseEntity<List<EmployeeResponse>>> handle(@PathVariable Long id) {
         return supplyAsync(() -> departmentWithEmployeeService.execute(id)).thenApply((response) -> ResponseEntity.ok().body(response));
     }
 }

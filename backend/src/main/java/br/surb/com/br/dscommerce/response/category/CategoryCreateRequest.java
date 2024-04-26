@@ -1,9 +1,9 @@
-package br.surb.com.br.dscommerce.dto.category;
+package br.surb.com.br.dscommerce.response.category;
 
 import java.io.Serial;
 import java.io.Serializable;
 
-public record CategoryResponse(
+public record CategoryCreateRequest(
         Long id,
         String name
 ) implements Serializable {

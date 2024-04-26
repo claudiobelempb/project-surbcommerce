@@ -1,6 +1,6 @@
 package br.surb.com.br.dscommerce.resources.order;
 
-import br.surb.com.br.dscommerce.dto.OrderDTO;
+import br.surb.com.br.dscommerce.response.OrderDTO;
 import br.surb.com.br.dscommerce.services.order.OrderCreateService;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;

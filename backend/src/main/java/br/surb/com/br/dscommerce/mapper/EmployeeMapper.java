@@ -1,10 +1,14 @@
 package br.surb.com.br.dscommerce.mapper;
 
+import br.surb.com.br.dscommerce.entities.Department;
 import br.surb.com.br.dscommerce.entities.Employee;
-import br.surb.com.br.dscommerce.http.request.EmployeeCustomRequest;
 import br.surb.com.br.dscommerce.http.request.EmployeeRequest;
+import br.surb.com.br.dscommerce.http.response.DepartmentResponse;
 import br.surb.com.br.dscommerce.http.response.EmployeeDepartmentResponse;
 import br.surb.com.br.dscommerce.http.response.EmployeeResponse;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class EmployeeMapper {
     public static Employee toRequest(EmployeeRequest request) {
@@ -20,27 +24,25 @@ public class EmployeeMapper {
         return new EmployeeResponse(
                 entity.getId(),
                 entity.getName(),
-                entity.getEmail(),
-                entity.getDepartment().getId()
+                entity.getEmail()
         );
     }
 
-    public static Employee toCustomRequest(EmployeeCustomRequest request) {
-        Employee response = new Employee();
-
-        response.setId(request.id());
-        response.setName(request.name());
-        response.setEmail(request.email());
-        response.setDepartment(request.department());
-
-        return response;
-    }
-
-    public static EmployeeDepartmentResponse toCustomResponse(Employee entity) {
+    public static EmployeeDepartmentResponse toEmployeeDepartmentResponse1(Employee entity) {
         return new EmployeeDepartmentResponse(
                 entity.getId(),
                 entity.getName(),
-                entity.getEmail()
+                entity.getEmail(),
+               new DepartmentResponse(entity.getDepartment().getId(),  entity.getDepartment().getName())
         );
+    }
+
+    public static List<EmployeeResponse> toEmployeeDepartmentResponse(Department response) {
+        return response.getEmployees().stream()
+                .map(x -> new EmployeeResponse(
+                        x.getId(),
+                        x.getName(),
+                        x.getEmail())
+                ).collect(Collectors.toList());
     }
 }

@@ -1,10 +1,12 @@
 package br.surb.com.br.dscommerce.mapper;
 
-import br.surb.com.br.dscommerce.dto.category.CategoryResponse;
-import br.surb.com.br.dscommerce.dto.product.*;
+import br.surb.com.br.dscommerce.response.category.CategoryResponse;
+import br.surb.com.br.dscommerce.response.product.*;
 import br.surb.com.br.dscommerce.entities.Category;
 import br.surb.com.br.dscommerce.entities.Product;
+import org.springframework.data.domain.Page;
 
+import java.util.List;
 import java.util.stream.Collectors;
 
 public final class ProductMapper {
@@ -23,7 +25,8 @@ public final class ProductMapper {
                 entity.getName(),
                 entity.getDescription(),
                 entity.getPrice(),
-                entity.getImgUrl()
+                entity.getImgUrl(),
+                entity.getCategories().stream().map(c -> new CategoryResponse(c.getId(), c.getName())).collect(Collectors.toList())
         );
     }
 

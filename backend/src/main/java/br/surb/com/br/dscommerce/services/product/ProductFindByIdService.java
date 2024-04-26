@@ -1,6 +1,6 @@
 package br.surb.com.br.dscommerce.services.product;
 
-import br.surb.com.br.dscommerce.dto.product.ProductDTO;
+import br.surb.com.br.dscommerce.response.product.ProductDTO;
 import br.surb.com.br.dscommerce.entities.Product;
 import br.surb.com.br.dscommerce.repositories.ProductRepository;
 import br.surb.com.br.dscommerce.shared.constants.ConstantException;

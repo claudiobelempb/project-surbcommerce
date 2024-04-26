@@ -10,5 +10,5 @@ spring:
   jpa:
     hibernate:
       format_sql: true
-      open-in-viwer: true
+      open-in-viwer: false
     show-sql: true

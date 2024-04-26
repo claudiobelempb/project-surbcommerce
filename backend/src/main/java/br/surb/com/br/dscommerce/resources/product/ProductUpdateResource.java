@@ -1,8 +1,7 @@
 package br.surb.com.br.dscommerce.resources.product;
 
-import br.surb.com.br.dscommerce.dto.product.ProductCustomRequest;
-import br.surb.com.br.dscommerce.dto.product.ProductCustomResponse;
-import br.surb.com.br.dscommerce.dto.product.ProductDTO;
+import br.surb.com.br.dscommerce.response.product.ProductCustomRequest;
+import br.surb.com.br.dscommerce.response.product.ProductCustomResponse;
 import br.surb.com.br.dscommerce.services.product.ProductUpdateService;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;

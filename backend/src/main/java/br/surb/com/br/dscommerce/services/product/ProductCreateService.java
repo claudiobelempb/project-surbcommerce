@@ -1,7 +1,7 @@
 package br.surb.com.br.dscommerce.services.product;
 
-import br.surb.com.br.dscommerce.dto.product.ProductCreateRequest;
-import br.surb.com.br.dscommerce.dto.product.ProductCreateResponse;
+import br.surb.com.br.dscommerce.response.product.ProductCreateRequest;
+import br.surb.com.br.dscommerce.response.product.ProductCreateResponse;
 import br.surb.com.br.dscommerce.entities.Product;
 import br.surb.com.br.dscommerce.mapper.ProductMapper;
 import br.surb.com.br.dscommerce.repositories.ProductRepository;

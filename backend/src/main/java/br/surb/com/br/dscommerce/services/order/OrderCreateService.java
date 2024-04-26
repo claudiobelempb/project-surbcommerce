@@ -1,11 +1,10 @@
 package br.surb.com.br.dscommerce.services.order;
 
-import br.surb.com.br.dscommerce.dto.OrderDTO;
-import br.surb.com.br.dscommerce.dto.OrderUserDTO;
+import br.surb.com.br.dscommerce.response.OrderDTO;
+import br.surb.com.br.dscommerce.response.OrderUserDTO;
 import br.surb.com.br.dscommerce.entities.Order;
 import br.surb.com.br.dscommerce.entities.User;
 import br.surb.com.br.dscommerce.repositories.OrderRepository;
-import br.surb.com.br.dscommerce.repositories.PaymentRepository;
 import br.surb.com.br.dscommerce.repositories.UserRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

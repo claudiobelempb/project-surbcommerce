@@ -1,4 +1,4 @@
-package br.surb.com.br.dscommerce.dto;
+package br.surb.com.br.dscommerce.response;
 
 import br.surb.com.br.dscommerce.shared.enums.OrderEnum;
 

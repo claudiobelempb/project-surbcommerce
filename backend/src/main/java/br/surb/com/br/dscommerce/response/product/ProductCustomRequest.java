@@ -1,6 +1,6 @@
-package br.surb.com.br.dscommerce.dto.product;
+package br.surb.com.br.dscommerce.response.product;
 
-import br.surb.com.br.dscommerce.dto.category.CategoryResponse;
+import br.surb.com.br.dscommerce.response.category.CategoryResponse;
 import br.surb.com.br.dscommerce.shared.constants.ConstantValidator;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Positive;

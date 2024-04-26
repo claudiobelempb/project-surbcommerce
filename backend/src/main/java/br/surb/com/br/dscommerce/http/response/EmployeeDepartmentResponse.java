@@ -6,7 +6,8 @@ import java.io.Serializable;
 public record EmployeeDepartmentResponse(
         Long id,
         String name,
-        String email
+        String email,
+        DepartmentResponse department
 ) implements Serializable {
 
     @Serial

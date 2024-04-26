@@ -1,13 +1,12 @@
 package br.surb.com.br.dscommerce.resources.product;
 
-import br.surb.com.br.dscommerce.dto.product.ProductDTO;
+import br.surb.com.br.dscommerce.response.product.ProductDTO;
+import br.surb.com.br.dscommerce.response.product.ProductResponse;
 import br.surb.com.br.dscommerce.services.product.ProductFindAllService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -29,7 +28,10 @@ public class ProductFindAllResource {
     //    }
 
     @GetMapping
-    public CompletableFuture<ResponseEntity<Page<ProductDTO>>> handle(Pageable pageable) {
-        return supplyAsync(() -> productFindAllService.execute(pageable)).thenApply((product) -> ResponseEntity.ok().body(product));
+    public CompletableFuture<ResponseEntity<Page<ProductResponse>>> handle(
+            @RequestParam(name = "name", defaultValue = "") String name,
+            Pageable pageable
+    ) {
+        return supplyAsync(() -> productFindAllService.execute(name, pageable)).thenApply((product) -> ResponseEntity.ok().body(product));
     }
 }

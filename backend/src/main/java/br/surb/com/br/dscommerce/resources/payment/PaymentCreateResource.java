@@ -1,7 +1,6 @@
 package br.surb.com.br.dscommerce.resources.payment;
 
-import br.surb.com.br.dscommerce.dto.OrderDTO;
-import br.surb.com.br.dscommerce.dto.PaymentDTO;
+import br.surb.com.br.dscommerce.response.PaymentDTO;
 import br.surb.com.br.dscommerce.services.payment.PaymentCreateService;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
